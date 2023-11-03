@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DVD Style Bouncing Emoji</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  #emoji {
+    position: absolute;
+    font-size: 48px;
+  }
+</style>
+</head>
+<body>
+<div id="emoji">👋</div>
+
+<script>
+  const emoji = document.getElementById('emoji');
+  let x = 0;
+  let y = 0;
+  let xSpeed = 2;
+  let ySpeed = 2;
+  
+  function animate() {
+    const rect = emoji.getBoundingClientRect();
+    const maxX = window.innerWidth - rect.width;
+    const maxY = window.innerHeight - rect.height;
+    
+    // Update position
+    x += xSpeed;
+    y += ySpeed;
+    
+    // Bounce off walls
+    if (x < 0 || x > maxX) xSpeed *= -1;
+    if (y < 0 || y > maxY) ySpeed *= -1;
+    
+    // Apply position
+    emoji.style.transform = `translate(${x}px, ${y}px)`;
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+</script>
+</body>
+</html>
