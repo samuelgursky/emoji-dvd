@@ -6,6 +6,7 @@
 <title>DVD Style Bouncing Emoji</title>
 <style>
   body {
+    background-color: black; <!-- Set the background color to black -->
     margin: 0;
     overflow: hidden;
   }
@@ -22,8 +23,8 @@
   const emoji = document.getElementById('emoji');
   let x = 0;
   let y = 0;
-  let xSpeed = 2;
-  let ySpeed = 2;
+  let xSpeed = 1; <!-- Reduced the speed for x-axis movement -->
+  let ySpeed = 1; <!-- Reduced the speed for y-axis movement -->
   
   function animate() {
     const rect = emoji.getBoundingClientRect();
